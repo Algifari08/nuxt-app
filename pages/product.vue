@@ -1,6 +1,7 @@
 <template>
   <div>
     Ini Produk
+    <a href="" class="bg-primary-app"></a>
   </div>
 </template>
 

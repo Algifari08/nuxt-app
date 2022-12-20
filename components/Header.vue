@@ -1,29 +1,20 @@
 <!-- Please remove this file from your project -->
-<template>
-  <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">{{ nameApp }}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<template lang="pug">
+.header
+  .container-fluid.mx-3
+    .header__wrapper 
+      ='\n'
+      a.header__logo(href="#")
+        ='\n'
+        img.header__logo__el(:src="`${logo}`" :alt="`${altLogo}`")/
+        ='\n'
+      ul.header__nav
+          li(v-for="(item, index) in menus" :key="index").header__item 
+            ='\n'
+            a.header__link(:href="item.route")
+              | {{ item.name }}
+            ='\n'
+      a.btn-primary {{ titleBtn }}
 </template>
 
 <script>
@@ -31,8 +22,72 @@ export default {
   name: 'Header',
   data() { 
     return {
-      nameApp: 'Static App',
+      titleBtn: 'Free Trial',
+      logo: null,
+      altLogo: 'Header Logo',
+      menus: [
+        {
+          name: 'Home',
+          route: '/home'
+        },
+        {
+          name: 'Product',
+          route: '/product'
+        },
+        {
+          name: 'Home',
+          route: '/home'
+        },
+      ]
     }
   },
+  created() { 
+    this.getMenus()
+    this.getLogo()
+  },
+  methods: {
+    getMenus() { 
+      const response = [
+        {
+          name: 'Home',
+          route: '/home'
+        },
+        {
+          name: 'Product',
+          route: '/product'
+        },
+        {
+          name: 'Pricing',
+          route: '/pricing'
+        },
+        {
+          name: 'About Us',
+          route: '/about'
+        },
+        {
+          name: 'Blog',
+          route: '/blog'
+        },
+        {
+          name: 'Contact',
+          route: '/contact'
+        }
+      ]
+
+      this.menus = response
+    },
+    getLogo() { 
+      const response = '/img/logo/header-logo.svg'
+      this.logo = response
+    },
+    nextHref(route) { 
+      this.$router.push(route)
+    }
+  }
 }
 </script>
+
+
+<style lang="scss">
+
+</style>

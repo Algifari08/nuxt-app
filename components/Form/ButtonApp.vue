@@ -1,17 +1,16 @@
 <!-- Please remove this file from your project -->
-<template>
-  <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-    <div>
-      Button
-    </div>
-  </div>
+<template lang="pug">
+a.btn.btn-primary.btn-lg(v-if="type === 'submit'" :type="`${type}`") {{ title }}
+a.btn.btn-primary.btn-lg(v-else-if="type === 'link'" :href="`${link}`") {{ title }}
 </template>
 
 <script>
 export default {
-  name: 'Banner',
+  name: 'ButtonApp',
   props: {
-    title: String
+    title: String,
+    type: String,
+    link: String
   }
 }
 </script>

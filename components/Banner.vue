@@ -1,8 +1,14 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-    <div>
-      <p>{{ title }}</p>
+  <div class="container-fluid mt-2">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body bg-primary-app text-white">
+            <h1>Selamat Datang</h1>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

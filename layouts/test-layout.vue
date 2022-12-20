@@ -4,10 +4,10 @@
       <Header />
     </div>
     <div class="col-md-12">
-      <Banner title="Test"/>
+      <nuxt />
     </div>
     <div class="col-md-12">
-      <nuxt />
+      <Footer />
     </div>
   </div>
 </template>
